@@ -1,0 +1,51 @@
+*.pdf
+*.png
+.DS_Store
+*.mp4
+*.csv
+*.srt
+**pycache**/
+*.tsv
+*.json
+*.txt
+*.vtt
+
+# Python
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Streamlit
+.streamlit/
+
+# OS generated files (擴展自原有的 .DS_Store)
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 媒體和數據文件 (擴展自原有的內容)
+*.jpg
+*.jpeg
+*.gif
+
+# 日誌文件
+*.log
+
+# IDE 和編輯器
+.vscode/
+.idea/
+
+# 臨時文件
+*.tmp
+*.bak
+*.swp
