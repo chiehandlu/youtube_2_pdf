@@ -1,54 +1,74 @@
-# Video2PDF
+# YouTube到PDF轉換器
 
-適合將任何線上影片、課程壓制成一格一格播放的 PDF
+這個Streamlit網頁應用程式允許用戶將YouTube視頻轉換為PDF文檔。應用程式會下載視頻、生成字幕、翻譯字幕、將視頻轉換為圖片，最後將這些圖片編譯成PDF。
 
-## pre-Installation
+## 功能特點
 
-需要先安裝 `moviepy`
-```
-pip install moviepy
-```
+- 簡單的網頁界面，用於輸入YouTube URL
+- 進度條顯示轉換狀態
+- 自動下載轉換後的PDF
 
-### 執行
-#### 功能 1. 壓制
-`python main.py xxx.mp4`
+## 安裝
 
-* 需要兩個檔案 mp4, srt （不管有沒有內嵌字幕檔，都需要 srt 當時間參考點）
-* srt 必須是 `xxx.zh.srt`
-* 將同名的 mp4 與同名的 srt 放在一起，執行 `python main.py xxx.mp4` 等待一定時間即會產生 pdf
-* 如果影片已經有預設 srt 不需 srt 壓制進去只需要檔參考點，請用 `python main.py xxx.mp4 --embed`
+1. 克隆此倉庫：
+   ```
+   git clone https://github.com/yourusername/youtube-to-pdf-converter.git
+   cd youtube-to-pdf-converter
+   ```
 
-#### 功能 2. 下載 Youtube 影片並下載字幕、翻譯
+2. 安裝所需的依賴：
+   ```
+   pip install -r requirements.txt
+   ```
 
-`python you_dt.py [youtube_url]`
+## 使用方法
 
-#### 功能 3. 純翻譯字幕
+1. 運行Streamlit應用：
+   ```
+   streamlit run streamlit_app_pdf.py
+   ```
 
-`python translate_srt.py xxxx.srt`
+2. 打開瀏覽器，訪問終端中顯示的URL（通常是 `http://localhost:8501`）。
 
+3. 在輸入框中輸入YouTube URL。
 
+4. 點擊"轉換"按鈕。
 
-### 注意事項
+5. 等待轉換過程完成。你可以通過進度條監控進度。
 
-* 檔案太大會遇到同時開啟個數限制
-* 先執行 `ulimit -n 4096` 可以解決
+6. 轉換完成後，點擊"下載PDF"按鈕來保存生成的PDF。
 
-### 不喜歡指定字體可以換
+## 系統要求
 
-執行 `python font.py` 察看你有哪些 font 可以用
+- Python 3.7+
+- Streamlit
+- yt-dlp
+- moviepy
+- Pillow
+- pysrt
+- requests
+- whisper-ctranslate2
+- tqdm
 
-### 推薦工具
+## 文件結構
 
-* 下載工具：yt-dlp
-* 下載字幕工具：YouTube™ 雙字幕 https://chrome.google.com/webstore/detail/youtube-dual-subtitles/hkbdddpiemdeibjoknnofflfgbgnebcm?hl=zh-TW
-* 聽譯字幕工具：https://goodsnooze.gumroad.com/l/macwhisper
-* 翻譯字幕工具：https://translatesubtitles.co/
+- `streamlit_app_pdf.py`: 主要的Streamlit應用
+- `you_dt.py`: 核心處理邏輯
+- `download_video.py`: 下載YouTube視頻的功能
+- `video_to_images.py`: 將視頻轉換為圖片的功能
+- `convert_png_to_pdf.py`: 將圖片轉換為PDF的功能
+- `translate_srt.py`: 翻譯字幕的功能
 
+## 注意事項
 
-### TODO
+本應用程式僅用於教育目的。使用此工具時，請尊重YouTube的服務條款和版權法。
 
-- [x] 雙語字幕
-- [x] 多核 CPU 平行處理
-- [ ] Streamlit UI 介面
-- [ ] 向量檢索
-- [ ] PDF searchable
+## 貢獻
+
+本項目是基於 [xdite/Video2PDF](https://github.com/xdite/Video2PDF.git) 的工作進行的。我們感謝原作者 xdite 的貢獻和創意。
+
+歡迎提出問題、建議和功能請求。如果你想貢獻代碼，請查看 [issues 頁面](https://github.com/yourusername/youtube-to-pdf-converter/issues)。
+
+## 授權
+
+本項目採用 [MIT](https://choosealicense.com/licenses/mit/) 授權。
